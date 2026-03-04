@@ -1,12 +1,12 @@
 import { Stack, useRouter } from "expo-router";
-import { Button, View } from "react-native";
+import { Button, Text, View } from "react-native";
 
-export default function Index() {
+export default function Email() {
   const router = useRouter();
 
   return (
     <>
-      <Stack.Screen options={{ title: "Welcome" }} />
+      <Stack.Screen options={{ title: "Email" }} />
       <View
         style={{
           flex: 1,
@@ -14,8 +14,10 @@ export default function Index() {
           justifyContent: "center",
         }}
       >
+        <Text style={{ marginBottom: 20 }}>Email Page</Text>
+
         <Button
-          title="GO TO NAVIGATION LIST"
+          title="Go To Home Screen"
           onPress={() => router.push("/home")}
         />
       </View>

@@ -20,7 +20,7 @@ export default function Home() {
           title="Go To Email Screen"
           onPress={() => router.push("/email")}
         />
-
+        {/* test */}
         <View style={{ height: 10 }} />
 
         <Button

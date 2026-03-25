@@ -3,7 +3,7 @@
     "name": "Week4_93892_Airin",
     "slug": "Week4_93892_Airin",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "week493892airin",
     "userInterfaceStyle": "automatic",

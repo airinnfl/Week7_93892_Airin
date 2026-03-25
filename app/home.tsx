@@ -1,47 +1,64 @@
+import { LinearGradient } from "expo-linear-gradient";
 import { Stack, useRouter } from "expo-router";
-import { Button, View } from "react-native";
+import { View } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 
 export default function Home() {
   const router = useRouter();
 
+  const MenuButton = ({ title, delay, route }: any) => (
+    <Animated.View entering={FadeInDown.delay(delay)}>
+      <View
+        style={{
+          backgroundColor: "rgba(255,255,255,0.8)",
+          padding: 18,
+          borderRadius: 20,
+          marginBottom: 15,
+          width: 250,
+          alignItems: "center",
+        }}
+      >
+        <Animated.Text
+          style={{
+            color: "#1e3a8a",
+            fontWeight: "bold",
+            fontSize: 16,
+          }}
+          onPress={() => router.push(route)}
+        >
+          {title}
+        </Animated.Text>
+      </View>
+    </Animated.View>
+  );
+
   return (
     <>
       <Stack.Screen options={{ title: "Home" }} />
 
-      <View
+      <LinearGradient
+        colors={["#e0f2fe", "#bfdbfe", "#93c5fd"]}
         style={{
           flex: 1,
-          alignItems: "center",
           justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        {/* Title */}
         <Animated.Text
-          entering={FadeInDown.delay(100).duration(500)}
-          style={{ marginBottom: 20, fontSize: 18 }}
+          entering={FadeInDown.delay(100)}
+          style={{
+            fontSize: 26,
+            fontWeight: "bold",
+            marginBottom: 25,
+            color: "#1e3a8a",
+          }}
         >
-          Navigation List
+          Navigation
         </Animated.Text>
 
-        {/* Button 1 */}
-        <Animated.View entering={FadeInDown.delay(300)}>
-          <Button
-            title="Go To Email Screen"
-            onPress={() => router.push("/email")}
-          />
-        </Animated.View>
-
-        <View style={{ height: 10 }} />
-
-        {/* Button 2 */}
-        <Animated.View entering={FadeInDown.delay(600)}>
-          <Button
-            title="Go To User List Page"
-            onPress={() => router.push("/userList")}
-          />
-        </Animated.View>
-      </View>
+        <MenuButton title="Email Screen" delay={300} route="/email" />
+        <MenuButton title="User List" delay={500} route="/userList" />
+      </LinearGradient>
     </>
   );
 }
